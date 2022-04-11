@@ -9,11 +9,19 @@
 
 .middle {
     padding-top: 1.3em;
-    flex-grow: 10;
+    height: 65%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    overflow: unset;
+}
+
+.bottom {
+    height: 35%;
+    background: #1C1E21;
+    overflow-y: auto;
+    border: 1px solid black;
+    border-top: none
+
 }
 
 .head-middle, .head-bottom {
@@ -34,14 +42,18 @@
     width: 100%;
 }
 
+.head-bottom {
+    position: fixed;
+    width: 99.9%;
+    border-right: 1px solid black;
+}
+
 .middle-main {
     margin-top: 1.9em;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-y: scroll;
-    align-items: stretch;
-    max-height: 75%;
+    height: 100%;
 }
 
 .track-list {
@@ -53,13 +65,10 @@
     border: 1px solid black;
     border-top: none;
     border-bottom: none;
-    /*height: 100%;*/
     font-family: monospace;
     font-weight: bold;
     font-size: 1em;
     color: lightgray;
-    padding-top: 0.2em;
-    padding-left: 0.75em;
 }
 
 .audio-piste {
@@ -67,16 +76,17 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: #323236;
+    background-color: #303033;
     border-right: 1px solid black;
-    height: 100%;
 }
 
-.bottom {
-    flex-grow: 8;
-    background: #1C1E21;
-    min-height: 300px;
-    overflow-y: auto;
+.plugin-grid {
+    padding-top: 2em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .timer {
@@ -110,3 +120,76 @@ div.ui.inverted.fixed.menu {
     border: 1px solid black !important;
 }
 
+/* Track Element */
+.track-element {
+    border: 1px solid black;
+    height: 8em;
+    background-color: #31353A;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.track-element-color {
+    flex-grow: 1;
+    background-color: greenyellow;
+}
+
+.track-element-tools {
+    flex-grow: 20;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.track-name {
+    padding: 0.5em 0.5em 0.5em 1em;
+    flex-grow: 1;
+}
+
+.ui.inverted.grey.slider.track {
+    width: 100%;
+    padding: 0 1em;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.track-element-tools-tool {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex-grow: 6;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item.tool {
+    color: grey;
+}
+
+.item.tool:hover {
+    color: white;
+}
+
+.add-track, .add-plugin {
+    margin: 1em;
+    height: 4em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.add-track:hover, .add-plugin:hover {
+    background-color: #151718;
+}
+
+.add-plugin {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1em;
+    color: lightgray;
+}
