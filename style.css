@@ -1,14 +1,17 @@
+body, html {
+    background-color: black;
+}
 
-.main {
+.music-app {
     padding-top: 1.5em;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     height: 100%;
-    background-color: black;
+    background-color: #1C1E21;
 }
 
-.middle {
+.track-editor {
     padding-top: 39px;
     height: 65%;
     display: flex;
@@ -16,7 +19,8 @@
     flex-wrap: nowrap;
 }
 
-.bottom {
+.plugin-editor {
+    margin-top: 28px;
     height: 35%;
     background: #1C1E21;
     overflow-y: auto;
@@ -25,7 +29,7 @@
     z-index: 4;
 }
 
-.head-middle, .head-bottom {
+.head-track-editor, .head-plugin-editor {
     background-color: #3b4046;
     border: 1px solid black;
     font-family: monospace;
@@ -37,96 +41,152 @@
     height: 1.9em;
 }
 
-.head-middle {
+.head-track-editor {
     border-top: none;
     position: fixed;
     width: 100%;
 }
 
-.head-bottom {
+.head-plugin-editor {
     position: fixed;
     width: 99.9%;
     border-right: 1px solid black;
 }
 
-.middle-main {
+.tracks {
     margin-top: 1.9em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     height: 100%;
-    overflow: scroll;
+    background-color: #1C1E21;
 }
 
-.track-list {
-    /*flex-grow: 1;*/
-    width: 10%;
+.tools-tracks {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     background-color: #1C1E21;
-    border: 1px solid black;
-    border-top: none;
-    border-bottom: none;
+    /*border: 1px solid black;*/
+    /*border-top: none;*/
+    /*border-bottom: none;*/
     font-family: monospace;
     font-weight: bold;
     font-size: 1em;
     color: lightgray;
+    overflow: scroll;
+    min-width: 192px;
 }
-
-.audio-piste {
-    /*flex-grow: 10;*/
+.audio-tracks {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: #303033;
-    border-right: 1px solid black;
-    width: 90%;
-}
-
-.playlist-tracks {
-    margin-top: 28px;
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-    background-color: #1C1E21;;
-}
-
-.channel-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    border: 1px solid black;
-    border-top: none;
-    margin-bottom: 1px;
-    margin-left: 1px;
-    margin-top: 1px;
-}
-
-.track-element-mod {
-
-    min-width: 150px;
-    min-height: 100px;
-    /*z-index: 2;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*border: 1px solid black;*/
-    background-color: #31353A;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /*margin-left: 3px;*/
+    background-color: #1C1E21;
+    overflow: scroll;
 }
 
 .wave-form {
     /*position: relative;*/
-    margin-left: 1px;
-    max-height: 100px;
+    margin-left: 3px;
+    min-height: 100px;
+    border: 1px solid black;
 }
 
+/* Track Element */
+.track-element {
+    border: 1px solid black;
+    min-height: 100px;
+    width: 180px;
+    background-color: #31353A;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 
-.plugin-grid {
+.track-element-color {
+    flex-grow: 3;
+    background-color: greenyellow;
+}
+
+.track-element-tools {
+    flex-grow: 20;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.track-name {
+    padding-top: 0.5em;
+    padding-left: 3em;
+    /*flex-grow: 1;*/
+    color: lightgray;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.track-volume, .balance {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right-icon, .left-icon, .mute-icon, .solo-icon {
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: monospace;
+    font-style: normal;
+    pointer-events: none;
+}
+
+.left-icon {
+    color: lightgray;
+    padding-left: 2px;
+    padding-right: 1px;
+}
+
+.right-icon {
+    color: lightgray;
+    padding-left: 1px;
+    padding-right: 4px;
+}
+
+.mute-icon, .solo-icon {
+    font-size: 1.3em;
+}
+
+.ui.inverted.grey.slider.track {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+}
+
+.track-controls {
+    padding-top: 0.2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    /*flex-grow: 6;*/
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item.tool {
+    color: grey;
+}
+
+.item.tool:hover {
+    color: white;
+}
+
+.plugin-rack {
     padding-top: 2em;
     height: 100%;
     display: flex;
@@ -150,79 +210,23 @@ a.item.menu:hover {
 }
 
 a.item.volume-slider {
-    width: 10em; height: auto;
+    width: 15em; height: auto;
 }
 
 i.icon {
     margin: 0 !important;
 }
 
-div.ui.inverted.fixed.menu {
+.main-menu {
     max-height:60px;
-    background-color: #31353A;
+    background-color: #31353A !important;
     font-family: monospace;
     border-radius: unset;
     margin: 0;
     border: 1px solid black !important;
 }
 
-/* Track Element */
-.track-element {
-    border: 1px solid black;
-    min-height: 8em;
-    background-color: #31353A;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-.track-element-color {
-    flex-grow: 1;
-    background-color: greenyellow;
-}
-
-.track-element-tools {
-    flex-grow: 20;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-.track-name {
-    padding: 0.5em 0.5em 0.5em 1em;
-    flex-grow: 1;
-    color: lightgray;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.ui.inverted.grey.slider.track {
-    width: 100%;
-    padding: 0 1em;
-    justify-content: space-around;
-    flex-grow: 1;
-}
-
-.track-element-tools-tool {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    flex-grow: 6;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.item.tool {
-    color: grey;
-}
-
-.item.tool:hover {
-    color: white;
-}
-
-.add-track, .add-plugin {
+.add-plugin {
     margin: 1em;
     height: 4em;
     display: flex;
@@ -231,15 +235,12 @@ div.ui.inverted.fixed.menu {
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
-}
-
-.add-track:hover, .add-plugin:hover {
-    background-color: #151718;
-}
-
-.add-plugin {
     font-family: monospace;
     font-weight: bold;
     font-size: 1em;
     color: lightgray;
 }
+.add-plugin:hover {
+    background-color: #151718;
+}
+
